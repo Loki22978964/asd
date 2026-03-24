@@ -12,7 +12,7 @@ namespace Data_Structures
         public int value;
         public Node next;
         public Node(int value)
-        { 
+        {
             this.value = value;
         }
     }
@@ -22,7 +22,7 @@ namespace Data_Structures
         private Node head;
         private int count;
 
-        public Node Head { get { return head; } } 
+        public Node Head { get { return head; } }
 
         public bool IsEmpty()
         {
@@ -38,7 +38,7 @@ namespace Data_Structures
         {
             Node newNode = new Node(data);
 
-            if(head == null)
+            if (head == null)
             {
                 head = newNode;
                 ++count;
@@ -47,7 +47,7 @@ namespace Data_Structures
 
             Node temp = head;
 
-            while(temp.next != null)
+            while (temp.next != null)
             {
                 temp = temp.next;
             }
@@ -58,7 +58,7 @@ namespace Data_Structures
 
         public void Remove(int data)
         {
-            if(head == null)
+            if (head == null)
             {
                 return;
             }
@@ -73,12 +73,12 @@ namespace Data_Structures
 
             Node current = head;
 
-            while(current.next != null && current.next.value != data)
+            while (current.next != null && current.next.value != data)
             {
                 current = current.next;
             }
 
-            if(current.next != null)
+            if (current.next != null)
             {
                 current.next = current.next.next;
                 count--;

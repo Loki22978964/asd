@@ -1,13 +1,12 @@
 ﻿using Data_Structures;
-using System.Collections.Generic;
 
 namespace helper
 {
     public class helper3
     {
-        public void Task3Simulation(Queue queue , LinkedList list)
+        public void Task3Simulation(Queue queue, LinkedList list)
         {
-            Console.WriteLine("--- Starting Task 3 ---");
+            Console.WriteLine("     Starting Task 3      ");
             Console.WriteLine("Initial List content:");
             list.Print();
 
@@ -50,7 +49,7 @@ namespace helper
 
         public LinkedList GetLinkedList(int size)
         {
-            Console.WriteLine($"--- Populating List (Size: {size}) ---");
+            Console.WriteLine($"     Populating List (Size: {size})    ");
             LinkedList linkedList = new LinkedList();
 
             for (int i = 0; i < size; i++)
