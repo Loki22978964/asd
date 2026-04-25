@@ -10,7 +10,7 @@ namespace ConsoleApp1.Extensions
 {
     public static class SortingExtensions
     {
-        // Рівень 1: Сортування вибіркою для масиву
+        // 1
         public static void SelectionSort(this Student[] arr)
         {
             for (int i = 0; i < arr.Length - 1; i++)
@@ -25,7 +25,7 @@ namespace ConsoleApp1.Extensions
             }
         }
 
-        // Рівень 2: Сортування вибіркою для двозв'язного списку
+        // 2
         public static void SelectionSort(this DoublyLinkedList<Student> list)
         {
             for (var i = list.Head; i != null; i = i.Next)
@@ -40,7 +40,7 @@ namespace ConsoleApp1.Extensions
             }
         }
 
-        // Рівень 3: Швидке сортування (QuickSort)
+        // 3 (QuickSort)
         public static void QuickSort(this Student[] arr, int left, int right)
         {
             if (left >= right) return;
@@ -52,7 +52,7 @@ namespace ConsoleApp1.Extensions
 
         private static int Partition(Student[] arr, int left, int right)
         {
-            var pivot = arr[right].Surname;
+            string pivot = arr[right].Surname;
             int i = left - 1;
             for (int j = left; j < right; j++)
             {

@@ -1,7 +1,6 @@
 ﻿using ConsoleApp1.BinaryTree;
 using ConsoleApp1.models;
 
-// Set encoding to handle any special characters if needed
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 BinaryTree tree = new BinaryTree();
 
@@ -20,11 +19,9 @@ tree.Add(new Student("Taylor", "Oleg", 4, "AC-200", new DateTime(2004, 12, 12)))
 Console.WriteLine("--- LEVEL 1: Initial Tree State (In-order) ---");
 tree.PrintTable();
 
-// LEVEL 2: Search
 Console.WriteLine("--- LEVEL 2: Searching for specific students ---");
 tree.FindSpecificStudents();
 
-// LEVEL 3: Deletion
 Console.WriteLine("--- LEVEL 3: Deleting students found by criteria ---");
 tree.DeleteSpecificStudents();
 

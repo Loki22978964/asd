@@ -12,8 +12,8 @@ var sampleData = new[] {
             new Student("Hryhorenko", "Denys", EducationForm.budgetary)
         };
 
-// --- LEVEL 1 ---
-Console.WriteLine("=== Level 1: Selection Sort (Array) ===");
+// 1
+Console.WriteLine("    Level 1: Selection Sort (Array)    ");
 var array1 = (Student[])sampleData.Clone();
 Console.WriteLine("Before:");
 PrintArray(array1);
@@ -24,8 +24,8 @@ Console.WriteLine("\nAfter:");
 PrintArray(array1);
 Console.WriteLine(new string('-', 50));
 
-// --- LEVEL 2 ---
-Console.WriteLine("\n=== Level 2: Selection Sort (Doubly Linked List) ===");
+// 2 
+Console.WriteLine("\n     Level 2: Selection Sort (Doubly Linked List)     ");
 var list = new DoublyLinkedList<Student>();
 foreach (var s in sampleData)
 {
@@ -41,8 +41,8 @@ Console.WriteLine("\nAfter:");
 list.PrintAll();
 Console.WriteLine(new string('-', 50));
 
-// --- LEVEL 3 ---
-Console.WriteLine("\n=== Level 3: Quick Sort (Array) ===");
+// 3
+Console.WriteLine("\n     Level 3: Quick Sort (Array)    ");
 var array3 = (Student[])sampleData.Clone();
 Console.WriteLine("Before:");
 PrintArray(array3);
