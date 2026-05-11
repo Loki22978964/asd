@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace lab5.DataStructure
 {
-    internal class BSTree
+    public class BSTree
     {
         public Node Root { get; private set; }
 
-        // --- Методи ротації (Рівень 2) ---
+        // Rotation Methods (Level 2)
         private Node RotateRight(Node y)
         {
             Node x = y.left;
@@ -28,7 +28,7 @@ namespace lab5.DataStructure
             return y;
         }
 
-        // --- Вставка в корінь через ротації (Рівень 2) ---
+        // Insertion into the root due to rotations (Level 2)
         public void InsertAtRoot(Student student)
         {
             Root = InsertAtRootRecursive(Root, student);
@@ -50,7 +50,7 @@ namespace lab5.DataStructure
             }
         }
 
-        // --- Оптимізація/Балансування (Рівень 3) ---
+        // Optimization/Balancing (Level 3)
         public void Optimize()
         {
             List<Student> students = new List<Student>();
@@ -76,7 +76,7 @@ namespace lab5.DataStructure
             return node;
         }
 
-        // Пошук за ключем (Рівень 2, 3)
+        // Search by key (Level 2, 3)
         public Node Search(double grade)
         {
             Node current = Root;
@@ -88,7 +88,7 @@ namespace lab5.DataStructure
             return null;
         }
 
-        // Обхід у ширину (BFS)
+        // Breadth Traversal (BFS)
         public void PrintBFS()
         {
             if (Root == null) return;
