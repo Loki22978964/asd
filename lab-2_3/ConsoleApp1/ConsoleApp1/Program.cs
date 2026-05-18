@@ -15,13 +15,9 @@ namespace CombinatoricsLab
             Console.WriteLine("=== ЛАБОРАТОРНА РОБОТА 2.3: ДОСЛІДЖЕННЯ КОМБІНАТОРНИХ АЛГОРИТМІВ ===");
             Console.WriteLine("Варіант 2\n");
 
-            // ==========================================
-            // ЗАВДАННЯ ПЕРШОГО РІВНЯ
-            // ==========================================
             Console.WriteLine("--- Завдання першого рівня ---");
             Console.WriteLine("Умова: Група студентів – 20 осіб. Скільки різних за складом підгруп з 12 осіб можна сформувати?");
 
-            // Визначення типу вибірки
             Console.WriteLine("Тип вибірки: Комбінації без повторень (порядок членів у підгрупі не має значення).");
 
             int n1 = 20;
@@ -30,13 +26,9 @@ namespace CombinatoricsLab
             Console.WriteLine($"Результат: Кількість можливих підгруп = {resultLevel1}\n");
 
 
-            // ==========================================
-            // ЗАВДАННЯ ДРУГОГО РІВНЯ
-            // ==========================================
             Console.WriteLine("--- Завдання другого рівня ---");
             Console.WriteLine("Умова: A[] = {8, 4, 9, 2, 4, 8, 1, 8, 2, 5, 8, 1, 1}. Визначити кількість різних масивів, що можна сформувати.");
 
-            // Визначення типу вибірки
             Console.WriteLine("Тип вибірки: Перестановки з повтореннями (переставляємо елементи, серед яких є однакові).");
 
             int[] array = { 8, 4, 9, 2, 4, 8, 1, 8, 2, 5, 8, 1, 1 };
@@ -44,17 +36,12 @@ namespace CombinatoricsLab
             Console.WriteLine($"Результат: Кількість різних масивів = {resultLevel2}\n");
 
 
-            // ==========================================
-            // ЗАВДАННЯ ТРЕТЬОГО РІВНЯ
-            // ==========================================
             Console.WriteLine("--- Завдання третього рівня ---");
             string fileName = @"F:\asd\lab-2_3\ConsoleApp1\ConsoleApp1\res\combinations_level1.txt";
             Console.WriteLine($"Генерація та запис усіх комбінацій для Завдання 1 у файл '{fileName}'...");
 
             try
             {
-                // Для демонстрації генерації комбінацій (C(20, 12)) згенеруємо їх та запишемо у файл.
-                // Оскільки варіантів досить багато (125970), генерація триватиме кілька секунд.
                 GenerateAndSaveCombinations(n1, k1, fileName);
                 Console.WriteLine("Всі комбінації успішно записані у файл!");
             }
@@ -67,9 +54,6 @@ namespace CombinatoricsLab
             Console.ReadKey();
         }
 
-        /// <summary>
-        /// Обчислення факторіалу за допомогою BigInteger для уникнення переповнення.
-        /// </summary>
         static BigInteger Factorial(int number)
         {
             BigInteger result = 1;
@@ -80,23 +64,16 @@ namespace CombinatoricsLab
             return result;
         }
 
-        /// <summary>
-        /// Формула комбінацій без повторень: C(n, k) = n! / (k! * (n - k)!)
-        /// </summary>
         static BigInteger CalculateCombinations(int n, int k)
         {
             if (k < 0 || k > n) return 0;
             return Factorial(n) / (Factorial(k) * Factorial(n - k));
         }
 
-        /// <summary>
-        /// Формула перестановок з повтореннями: P = n! / (n1! * n2! * ... * nm!)
-        /// </summary>
         static BigInteger CalculatePermutationsWithRepeats(int[] elements)
         {
             int totalCount = elements.Length;
 
-            // Групуємо елементи та рахуємо кількість повторень кожного числа
             var frequencies = elements.GroupBy(x => x)
                                       .Select(g => g.Count())
                                       .ToList();
@@ -112,9 +89,6 @@ namespace CombinatoricsLab
             return numerator / denominator;
         }
 
-        /// <summary>
-        /// Алгоритм генерації комбінацій та їх збереження у файл.
-        /// </summary>
         static void GenerateAndSaveCombinations(int n, int k, string filePath)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
@@ -124,10 +98,8 @@ namespace CombinatoricsLab
 
                 while (combination != null)
                 {
-                    // Записуємо поточну комбінацію (індекси студентів від 1 до n)
                     writer.WriteLine($"Підгрупа {++counter}: [{string.Join(", ", combination)}]");
 
-                    // Пошук наступної комбінації в лексикографічному порядку
                     int i = k - 1;
                     while (i >= 0 && combination[i] == n - k + i + 1)
                     {
@@ -136,7 +108,7 @@ namespace CombinatoricsLab
 
                     if (i < 0)
                     {
-                        combination = null; // Всі комбінації згенеровано
+                        combination = null;
                     }
                     else
                     {
